@@ -5,6 +5,48 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    /* Estilo para asegurar que todas las imágenes del carrusel tengan el mismo tamaño */
+    .project-carousel {
+      height: 250px; /* Altura fija para el carrusel */
+      overflow: hidden;
+    }
+    
+    .project-carousel img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Ajusta la imagen manteniendo la relación de aspecto */
+    }
+    
+    /* Opcional: Estilo para los indicadores del carrusel */
+    .carousel-indicators button {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+  /* Añade esto en tu <head> */
+  html, body {
+    height: 100%;
+  }
+  
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* viewport height */
+  }
+  
+  .container {
+    flex: 1; /* Esto hace que el contenido ocupe el espacio disponible */
+  }
+  
+  .footer {
+    background-color: #0a3b70;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: auto; /* Empuja el footer hacia abajo */
+  }
+</style>
 </head>
 <body>
   <nav class="navbar navbar-expand-lg" style="background-color: #0a3b70;">
