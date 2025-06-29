@@ -9,99 +9,56 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-    /* Estilos responsivos */
-    @media (max-width: 767px) {
-      .project-carousel {
-        height: 200px;
-      }
-      
-      .navbar-brand {
-        font-size: 1.5rem !important;
-      }
-      
-      .nav-link.btn {
-        padding: 0.5rem 1rem !important;
-        margin: 0.2rem 0;
-        width: 100%;
-      }
-      
-      h1 {
-        font-size: 1.8rem;
-        margin-top: 1rem !important;
-      }
-      
-      .card-body {
-        padding: 0.8rem;
-      }
-    }
-  .navbar {
-    background-color: #0a3b70 !important;
+<style>
+  /* Estilos para la navbar - Versión corregida */
+  .navbar.bg-custom {
+    background-color: #0a3b70;
   }
   
-  /* Color blanco para todos los textos de la navbar */
-  .navbar-brand,
-  .nav-link,
-  .dropdown-toggle,
-  .dropdown-item {
+  /* Texto blanco para todos los elementos de navegación */
+  .navbar.bg-custom .navbar-brand,
+  .navbar.bg-custom .nav-link,
+  .navbar.bg-custom .dropdown-toggle,
+  .navbar.bg-custom .dropdown-item {
     color: white !important;
   }
   
-  /* Estilo para los botones del menú */
-  .nav-link.btn {
+  /* Estilo mejorado para los botones del menú */
+  .navbar.bg-custom .nav-link.btn {
     background-color: rgba(255,255,255,0.2);
     border: none;
+    color: white !important;
+    margin: 0 5px;
   }
   
-  .nav-link.btn:hover {
+  .navbar.bg-custom .nav-link.btn:hover {
     background-color: rgba(255,255,255,0.3);
+    color: white !important;
   }
   
-  /* Estilo para el menú desplegable */
-  .dropdown-menu {
-    background-color: #0a3b70;
-    border: 1px solid rgba(255,255,255,0.1);
+  /* Menú desplegable */
+  .navbar.bg-custom .dropdown-menu {
+    background-color: #0a3d7a;
+    border: 1px solid rgba(255,255,255,0.2);
   }
   
-  .dropdown-item:hover {
-    background-color: rgba(255,255,255,0.1);
-  }
-    /* Estilo para asegurar que todas las imágenes del carrusel tengan el mismo tamaño */
-    .project-carousel {
-      height: 250px; /* Altura fija para el carrusel */
-      overflow: hidden;
-    }
-    
-    .project-carousel img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover; /* Ajusta la imagen manteniendo la relación de aspecto */
-    }
-    
-    /* Opcional: Estilo para los indicadores del carrusel */
-    .carousel-indicators button {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-    }
-  /* Añade esto en tu <head> */
-  html, body {
-    height: 100%;
+  .navbar.bg-custom .dropdown-item {
+    color: white !important;
+    padding: 8px 15px;
   }
   
-  body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* viewport height */
+  .navbar.bg-custom .dropdown-item:hover {
+    background-color: rgba(255,255,255,0.15);
   }
   
-  .container {
-    flex: 1; /* Esto hace que el contenido ocupe el espacio disponible */
-  }.custom-footer {
-  background-color: #0a3b70;
-  color: white;
-  padding: 20px 0;
-  width: 100%;
-}
+  /* Icono del toggler en móviles */
+  .navbar.bg-custom .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  }
+  
+  .navbar.bg-custom .navbar-toggler {
+    border-color: rgba(255,255,255,0.5);
+  }
 .footer {
     background-color: #0a3b70;
     color: white;
