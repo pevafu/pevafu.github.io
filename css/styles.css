@@ -82,3 +82,41 @@ body {
     margin-top: 2rem;
   }
 }
+/* En tu archivo style.css */
+.carousel {
+  max-height: 400px; /* Ajusta esta altura según necesites */
+  overflow: hidden;
+  background-color: #f8f9fa; /* Fondo por si las imágenes no cargan */
+}
+
+.carousel-inner {
+  height: 100%;
+}
+
+.carousel-item {
+  height: 100%;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Esto hace que la imagen cubra el contenedor manteniendo proporciones */
+  object-position: center; /* Centra la imagen */
+}
+
+/* Opcional: Estilo para los controles */
+.carousel-control-prev, .carousel-control-next {
+  background-color: rgba(0, 0, 0, 0.3);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Para pantallas pequeñas */
+@media (max-width: 768px) {
+  .carousel {
+    max-height: 300px;
+  }
+}
