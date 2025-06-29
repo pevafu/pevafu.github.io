@@ -38,15 +38,63 @@
   .container {
     flex: 1; /* Esto hace que el contenido ocupe el espacio disponible */
   }
-  
-  .footer {
-    background-color: #0a3b70;
-    color: white;
-    padding: 20px 0;
-    text-align: center;
-    margin-top: auto; /* Empuja el footer hacia abajo */
-  }
-</style>
+  <style>
+    /* Estilos para el footer */
+    html, body {
+      height: 100%;
+    }
+    
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    
+    .container {
+      flex: 1;
+      padding-bottom: 20px;
+    }
+    
+    .custom-footer {
+      background-color: #0a3b70;
+      color: white;
+      padding: 20px 0;
+      width: 100%;
+    }
+    
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column; /* Cambiado a columna */
+      align-items: center; /* Centrado horizontal */
+      padding: 0 15px;
+      gap: 10px; /* Espacio entre elementos */
+    }
+    
+    .whatsapp-link {
+      color: white !important;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.3s ease;
+      font-size: 1.1rem;
+      padding: 8px 16px;
+      background-color: #25D366; /* Fondo verde de WhatsApp */
+      border-radius: 5px;
+    }
+    
+    .whatsapp-link:hover {
+      background-color: #128C7E; /* Verde más oscuro al hover */
+      transform: scale(1.05);
+      text-decoration: none;
+    }
+    
+    .fa-whatsapp {
+      font-size: 1.2rem;
+    }
+  </style>
 </head>
 <body>
   <nav class="navbar navbar-expand-lg" style="background-color: #0a3b70;">
@@ -201,14 +249,15 @@
     </div>
   </div>
 
-  <footer class="custom-footer mt-auto">
+ <footer class="custom-footer mt-auto">
     <div class="footer-content">
       <p class="mb-0">© 2025 PVS Servicios</p>
       <a href="https://wa.me/56988691325" class="whatsapp-link" target="_blank" rel="noopener noreferrer">
-        <i class="fab fa-whatsapp"></i> Contáctame
+        <i class="fab fa-whatsapp"></i> Contáctame por WhatsApp
       </a>
     </div>
   </footer>
+
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
 </body>
