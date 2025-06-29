@@ -34,11 +34,11 @@
       max-width: 1200px;
       margin: 0 auto;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
+      flex-direction: column; /* Cambiado a columna */
+      align-items: center; /* Centrado horizontal */
       padding: 0 15px;
+      gap: 10px; /* Espacio entre elementos */
     }
-    
     .whatsapp-link {
       color: white !important; /* Aseguramos que el color sea blanco */
       text-decoration: none;
@@ -130,7 +130,7 @@
 
   <footer class="custom-footer mt-auto">
     <div class="footer-content">
-      <p class="mb-0">© 2025 PVS Servicios</p>
+      <p class="mb-0">© 2025 PV Servicios</p>
       <a href="https://wa.me/56988691325" class="whatsapp-link" target="_blank" rel="noopener noreferrer">
         <i class="fab fa-whatsapp"></i> Contáctame por WhatsApp
       </a>
