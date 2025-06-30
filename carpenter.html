@@ -7,7 +7,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
- <style>
+  <style>
     /* Estilos responsivos */
     @media (max-width: 767px) {
       .project-carousel {
@@ -138,6 +138,32 @@
     .fa-whatsapp {
       font-size: 1.2rem;
     }
+    
+    /* Estilos para el modal de galería */
+    #galleryModal .modal-dialog {
+      max-width: 90%;
+      max-height: 90vh;
+    }
+
+    #galleryModal .carousel {
+      max-height: 70vh;
+    }
+
+    #galleryModal .carousel-item img {
+      object-fit: contain;
+      max-height: 70vh;
+      width: 100%;
+    }
+    
+    /* Cursor pointer para los títulos clickeables */
+    .card-title {
+      cursor: pointer;
+    }
+    
+    .card-title:hover {
+      text-decoration: underline;
+      color: #0a3b70;
+    }
   </style>
 </head>
 <body>
@@ -176,6 +202,34 @@
     </div>
   </div>
 
+  <!-- Modal para la galería ampliada -->
+  <div class="modal fade" id="galleryModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalTitle"></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div id="modalCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner" id="modalCarouselInner">
+              <!-- Las imágenes se insertarán aquí dinámicamente -->
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#modalCarousel" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#modalCarousel" data-bs-slide="next">
+              <span class="carousel-control-next-icon"></span>
+            </button>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <footer class="custom-footer mt-auto">
     <div class="footer-content">
       <p class="mb-0">© 2025 PV Servicios</p>
@@ -190,7 +244,7 @@
   <script>
     // Datos de los proyectos de carpintería en formato JSON
     const data = {
-     /* "proyectos": [
+      "proyectos": [
         {
           "id": 1,
           "titulo": "Cocina Personalizada",
@@ -247,23 +301,18 @@
             "images/puertas2.jpg"
           ]
         }
-      ]*/
+      ]
     };
 
     // Función para mostrar los proyectos
     function cargarProyectos() {
       try {
-        // Obtener el contenedor de proyectos
         const container = document.getElementById('proyectos-container');
-        
-        // Limpiar contenedor por si hay contenido previo
         container.innerHTML = '';
         
-        // Generar el HTML para cada proyecto
         data.proyectos.forEach(proyecto => {
           const carruselId = `carousel-${proyecto.id}`;
           
-          // Crear indicadores del carrusel
           let indicadores = '';
           proyecto.imagenes.forEach((_, index) => {
             indicadores += `
@@ -273,7 +322,6 @@
             `;
           });
           
-          // Crear items del carrusel
           let items = '';
           proyecto.imagenes.forEach((imagen, index) => {
             items += `
@@ -283,7 +331,6 @@
             `;
           });
           
-          // Crear el HTML completo del proyecto
           const proyectoHTML = `
             <div class="col-md-4 mb-4">
               <div class="card">
@@ -302,14 +349,13 @@
                   </button>
                 </div>
                 <div class="card-body">
-                  <h5 class="card-title">${proyecto.titulo}</h5>
+                  <h5 class="card-title" onclick="abrirGaleria(${proyecto.id})">${proyecto.titulo}</h5>
                   <p class="card-text">${proyecto.descripcion}</p>
                 </div>
               </div>
             </div>
           `;
           
-          // Agregar el proyecto al contenedor
           container.innerHTML += proyectoHTML;
         });
         
@@ -321,6 +367,31 @@
           </div>
         `;
       }
+    }
+
+    // Función para abrir la galería modal
+    function abrirGaleria(proyectoId) {
+      // Encontrar el proyecto correspondiente
+      const proyecto = data.proyectos.find(p => p.id === proyectoId);
+      if (!proyecto) return;
+      
+      // Configurar el título del modal
+      document.getElementById('modalTitle').textContent = proyecto.titulo;
+      
+      // Configurar las imágenes en el carrusel del modal
+      const carruselInner = document.getElementById('modalCarouselInner');
+      carruselInner.innerHTML = '';
+      
+      proyecto.imagenes.forEach((imagen, index) => {
+        const item = document.createElement('div');
+        item.className = `carousel-item ${index === 0 ? 'active' : ''}`;
+        item.innerHTML = `<img src="${imagen}" class="d-block w-100" alt="${proyecto.titulo} - vista ${index + 1}">`;
+        carruselInner.appendChild(item);
+      });
+      
+      // Mostrar el modal
+      const modal = new bootstrap.Modal(document.getElementById('galleryModal'));
+      modal.show();
     }
 
     // Llamar a la función cuando el DOM esté listo
