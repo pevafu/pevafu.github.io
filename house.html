@@ -2,170 +2,171 @@
 <html>
 <head>
   <title>PVS - Hogar</title>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
- <style>
-  /* Estilos base */
-  html, body {
-    height: 100%;
-  }
-  
-  body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-  }
-  
-  .container {
-    flex: 1;
-    padding-bottom: 20px;
-  }
+  <style>
+    /* Estilos base */
+    html, body {
+      height: 100%;
+    }
+    
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    
+    .container {
+      flex: 1;
+      padding-bottom: 20px;
+    }
 
-  /* Estilos para la navbar */
-  .navbar.bg-custom {
-    background-color: #0a3b70;
-  }
-  
-  .navbar.bg-custom .navbar-brand,
-  .navbar.bg-custom .nav-link,
-  .navbar.bg-custom .dropdown-toggle,
-  .navbar.bg-custom .dropdown-item {
-    color: white !important;
-  }
-  
-  .navbar.bg-custom .nav-link.btn {
-    background-color: rgba(255,255,255,0.2);
-    border: none;
-    color: white !important;
-    margin: 0 5px;
-  }
-  
-  .navbar.bg-custom .nav-link.btn:hover {
-    background-color: rgba(255,255,255,0.3);
-    color: white !important;
-  }
-  
-  .navbar.bg-custom .dropdown-menu {
-    background-color: #0a3d7a;
-    border: 1px solid rgba(255,255,255,0.2);
-    width: 100%; /* Menú de ancho completo en móviles */
-  }
-  
-  .navbar.bg-custom .dropdown-item {
-    padding: 8px 15px;
-  }
-  
-  .navbar.bg-custom .dropdown-item:hover {
-    background-color: rgba(255,255,255,0.15);
-  }
-  
-  .navbar.bg-custom .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-  }
-  
-  .navbar.bg-custom .navbar-toggler {
-    border-color: rgba(255,255,255,0.5);
-  }
+    /* Estilos para la navbar */
+    .navbar.bg-custom {
+      background-color: #0a3b70;
+    }
+    
+    .navbar.bg-custom .navbar-brand,
+    .navbar.bg-custom .nav-link,
+    .navbar.bg-custom .dropdown-toggle,
+    .navbar.bg-custom .dropdown-item {
+      color: white !important;
+    }
+    
+    .navbar.bg-custom .nav-link.btn {
+      background-color: rgba(255,255,255,0.2);
+      border: none;
+      color: white !important;
+      margin: 0 5px;
+    }
+    
+    .navbar.bg-custom .nav-link.btn:hover {
+      background-color: rgba(255,255,255,0.3);
+      color: white !important;
+    }
+    
+    .navbar.bg-custom .dropdown-menu {
+      background-color: #0a3d7a;
+      border: 1px solid rgba(255,255,255,0.2);
+      width: 100%; /* Menú de ancho completo en móviles */
+    }
+    
+    .navbar.bg-custom .dropdown-item {
+      padding: 8px 15px;
+    }
+    
+    .navbar.bg-custom .dropdown-item:hover {
+      background-color: rgba(255,255,255,0.15);
+    }
+    
+    .navbar.bg-custom .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+    
+    .navbar.bg-custom .navbar-toggler {
+      border-color: rgba(255,255,255,0.5);
+    }
 
-  /* Estilos del carrusel */
-  .project-carousel {
-    height: 250px;
-    overflow: hidden;
-  }
-  
-  .project-carousel img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  .carousel-indicators button {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-  }
-
-  /* Estilos del footer */
-  .custom-footer, .footer {
-    background-color: #0a3b70;
-    color: white;
-    padding: 20px 0;
-    width: 100%;
-  }
-  
-  .footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0 15px;
-    gap: 10px;
-  }
-  
-  .whatsapp-link {
-    color: white !important;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    transition: all 0.3s ease;
-    font-size: 1.1rem;
-    padding: 8px 16px;
-    background-color: #25D366;
-    border-radius: 5px;
-    margin: 10px 0;
-  }
-  
-  .whatsapp-link:hover {
-    background-color: #128C7E;
-    transform: scale(1.05);
-    text-decoration: none;
-  }
-  
-  .fa-whatsapp {
-    font-size: 1.2rem;
-  }
-
-  /* Estilos para tarjetas */
-  .card-body {
-    padding: 1rem;
-  }
-
-  /* Estilos responsivos */
-  @media (max-width: 767px) {
+    /* Estilos del carrusel */
     .project-carousel {
-      height: 200px;
+      height: 250px;
+      overflow: hidden;
     }
     
-    .navbar-brand {
-      font-size: 1.5rem !important;
+    .project-carousel img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
     
-    .nav-link.btn {
-      padding: 0.5rem 1rem !important;
-      margin: 0.2rem 0;
+    .carousel-indicators button {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    /* Estilos del footer */
+    .custom-footer, .footer {
+      background-color: #0a3b70;
+      color: white;
+      padding: 20px 0;
       width: 100%;
     }
     
-    h1 {
-      font-size: 1.8rem;
-      margin-top: 1rem !important;
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 15px;
+      gap: 10px;
     }
     
-    .card-body {
-      padding: 0.8rem;
+    .whatsapp-link {
+      color: white !important;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.3s ease;
+      font-size: 1.1rem;
+      padding: 8px 16px;
+      background-color: #25D366;
+      border-radius: 5px;
+      margin: 10px 0;
     }
-  }
+    
+    .whatsapp-link:hover {
+      background-color: #128C7E;
+      transform: scale(1.05);
+      text-decoration: none;
+    }
+    
+    .fa-whatsapp {
+      font-size: 1.2rem;
+    }
 
-  @media (min-width: 992px) {
-    .dropdown-menu {
-      width: auto;
+    /* Estilos para tarjetas */
+    .card-body {
+      padding: 1rem;
     }
-  }
-</style>
+
+    /* Estilos responsivos */
+    @media (max-width: 767px) {
+      .project-carousel {
+        height: 200px;
+      }
+      
+      .navbar-brand {
+        font-size: 1.5rem !important;
+      }
+      
+      .nav-link.btn {
+        padding: 0.5rem 1rem !important;
+        margin: 0.2rem 0;
+        width: 100%;
+      }
+      
+      h1 {
+        font-size: 1.8rem;
+        margin-top: 1rem !important;
+      }
+      
+      .card-body {
+        padding: 0.8rem;
+      }
+    }
+
+    @media (min-width: 992px) {
+      .dropdown-menu {
+        width: auto;
+      }
+    }
+  </style>
 </head>
 <body>
   <nav class="navbar navbar-expand-lg" style="background-color: #0a3b70;">
@@ -200,123 +201,8 @@
 
   <div class="container mt-5">
     <h1 class="text-center mb-4">Galería de Arreglos en el Hogar</h1>
-    <div class="row">
-      <!-- Ejemplo de trabajo 1 con carrusel -->
-      <div class="col-md-4 mb-4">
-        <div class="card">
-          <div id="project1Carousel" class="carousel slide project-carousel" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-              <button type="button" data-bs-target="#project1Carousel" data-bs-slide-to="0" class="active"></button>
-              <button type="button" data-bs-target="#project1Carousel" data-bs-slide-to="1"></button>
-              <button type="button" data-bs-target="#project1Carousel" data-bs-slide-to="2"></button>
-            </div>
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img src="images/casa1.jpg" class="d-block w-100" alt="Construcción duplex vista 1">
-              </div>
-              <div class="carousel-item">
-                <img src="images/casa2.jpg" class="d-block w-100" alt="Construcción duplex vista 2">
-              </div>
-              <div class="carousel-item">
-                <img src="images/casa3.jpg" class="d-block w-100" alt="Construcción duplex vista 3">
-              </div>
-              <div class="carousel-item">
-                <img src="images/casa4.jpg" class="d-block w-100" alt="Construcción duplex vista 4">
-              </div>
-              <div class="carousel-item">
-                <img src="images/casa5.jpg" class="d-block w-100" alt="Construcción duplex vista 5">
-              </div>
-              <div class="carousel-item">
-                <img src="images/casa6.jpg" class="d-block w-100" alt="Construcción duplex vista 6">
-              </div>
-              <div class="carousel-item">
-                <img src="images/casa7.jpg" class="d-block w-100" alt="Construcción duplex vista 7">
-              </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#project1Carousel" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon"></span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#project1Carousel" data-bs-slide="next">
-              <span class="carousel-control-next-icon"></span>
-            </button>
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">Construcción duplex</h5>
-            <p class="card-text">Creación de departamento de interior con dos pisos, 3 habitaciones, cocina, living-comedor y baño</p>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Ejemplo de trabajo 2 con carrusel -->
-      <div class="col-md-4 mb-4">
-        <div class="card">
-          <div id="project2Carousel" class="carousel slide project-carousel" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-              <button type="button" data-bs-target="#project2Carousel" data-bs-slide-to="0" class="active"></button>
-              <button type="button" data-bs-target="#project2Carousel" data-bs-slide-to="1"></button>
-              <button type="button" data-bs-target="#project2Carousel" data-bs-slide-to="2"></button>
-            </div>
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img src="images/ventilacion.jpg" class="d-block w-100" alt="Reparación de baño vista 1">
-              </div>
-              <div class="carousel-item">
-                <img src="images/ventilacion2.jpg" class="d-block w-100" alt="Reparación de baño vista 2">
-              </div>
-              <div class="carousel-item">
-                <img src="images/ventilacion3.jpg" class="d-block w-100" alt="Reparación de baño vista 3">
-              </div>
-              <div class="carousel-item">
-                <img src="images/baño.jpg" class="d-block w-100" alt="Reparación de baño vista 4">
-              </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#project2Carousel" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon"></span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#project2Carousel" data-bs-slide="next">
-              <span class="carousel-control-next-icon"></span>
-            </button>
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">Reparación de Baño</h5>
-            <p class="card-text">Renovación de ventilación en baño principal.</p>
-          </div>
-        </div>
-      </div>
-      
-      <!-- 
-      <div class="col-md-4 mb-4">
-        <div class="card">
-          <div id="project3Carousel" class="carousel slide project-carousel" data-bs-ride="carousel">
-            <div class="carousel-indicators">
-              <button type="button" data-bs-target="#project3Carousel" data-bs-slide-to="0" class="active"></button>
-              <button type="button" data-bs-target="#project3Carousel" data-bs-slide-to="1"></button>
-              <button type="button" data-bs-target="#project3Carousel" data-bs-slide-to="2"></button>
-            </div>
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <img src="images/proyecto3-1.jpg" class="d-block w-100" alt="Proyecto 3 vista 1">
-              </div>
-              <div class="carousel-item">
-                <img src="images/proyecto3-2.jpg" class="d-block w-100" alt="Proyecto 3 vista 2">
-              </div>
-              <div class="carousel-item">
-                <img src="images/proyecto3-3.jpg" class="d-block w-100" alt="Proyecto 3 vista 3">
-              </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#project3Carousel" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon"></span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#project3Carousel" data-bs-slide="next">
-              <span class="carousel-control-next-icon"></span>
-            </button>
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">Otro Proyecto</h5>
-            <p class="card-text">Descripción detallada del tercer proyecto.</p>
-          </div>
-        </div> 
-      </div>-->
+    <div class="row" id="proyectos-container">
+      <!-- Los proyectos se cargarán aquí dinámicamente -->
     </div>
   </div>
 
@@ -330,5 +216,150 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    // Datos de los proyectos de hogar en formato JSON
+    const data = {
+      "proyectos": [
+        {
+          "id": 1,
+          "titulo": "Construcción Duplex",
+          "descripcion": "Creación de departamento de interior con dos pisos, 3 habitaciones, cocina, living-comedor y baño",
+          "imagenes": [
+            "images/casa1.jpg",
+            "images/casa2.jpg",
+            "images/casa3.jpg",
+            "images/casa4.jpg",
+            "images/casa5.jpg",
+            "images/casa6.jpg",
+            "images/casa7.jpg"
+          ]
+        },
+        {
+          "id": 2,
+          "titulo": "Reparación de Baño",
+          "descripcion": "Renovación de ventilación en baño principal",
+          "imagenes": [
+            "images/ventilacion.jpg",
+            "images/ventilacion2.jpg",
+            "images/ventilacion3.jpg",
+            "images/baño.jpg"
+          ]
+        },
+        {
+          "id": 3,
+          "titulo": "Instalación Eléctrica",
+          "descripcion": "Actualización completa del sistema eléctrico residencial",
+          "imagenes": [
+            "images/electrico1.jpg",
+            "images/electrico2.jpg"
+          ]
+        },
+        {
+          "id": 4,
+          "titulo": "Reparación de Techo",
+          "descripcion": "Impermeabilización y reparación de techo",
+          "imagenes": [
+            "images/techo1.jpg",
+            "images/techo2.jpg"
+          ]
+        },
+        {
+          "id": 5,
+          "titulo": "Instalación de Pisos",
+          "descripcion": "Colocación de piso flotante en área social",
+          "imagenes": [
+            "images/piso1.jpg",
+            "images/piso2.jpg"
+          ]
+        },
+        {
+          "id": 6,
+          "titulo": "Pintura de Interiores",
+          "descripcion": "Pintura completa de departamento",
+          "imagenes": [
+            "images/pintura1.jpg",
+            "images/pintura2.jpg"
+          ]
+        }
+      ]
+    };
+
+    // Función para mostrar los proyectos
+    function cargarProyectos() {
+      try {
+        // Obtener el contenedor de proyectos
+        const container = document.getElementById('proyectos-container');
+        
+        // Limpiar contenedor por si hay contenido previo
+        container.innerHTML = '';
+        
+        // Generar el HTML para cada proyecto
+        data.proyectos.forEach(proyecto => {
+          const carruselId = `carousel-${proyecto.id}`;
+          
+          // Crear indicadores del carrusel
+          let indicadores = '';
+          proyecto.imagenes.forEach((_, index) => {
+            indicadores += `
+              <button type="button" data-bs-target="#${carruselId}" 
+                data-bs-slide-to="${index}" ${index === 0 ? 'class="active"' : ''}>
+              </button>
+            `;
+          });
+          
+          // Crear items del carrusel
+          let items = '';
+          proyecto.imagenes.forEach((imagen, index) => {
+            items += `
+              <div class="carousel-item ${index === 0 ? 'active' : ''}">
+                <img src="${imagen}" class="d-block w-100" alt="${proyecto.titulo} - vista ${index + 1}">
+              </div>
+            `;
+          });
+          
+          // Crear el HTML completo del proyecto
+          const proyectoHTML = `
+            <div class="col-md-4 mb-4">
+              <div class="card">
+                <div id="${carruselId}" class="carousel slide project-carousel" data-bs-ride="carousel">
+                  <div class="carousel-indicators">
+                    ${indicadores}
+                  </div>
+                  <div class="carousel-inner">
+                    ${items}
+                  </div>
+                  <button class="carousel-control-prev" type="button" data-bs-target="#${carruselId}" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                  </button>
+                  <button class="carousel-control-next" type="button" data-bs-target="#${carruselId}" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                  </button>
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">${proyecto.titulo}</h5>
+                  <p class="card-text">${proyecto.descripcion}</p>
+                </div>
+              </div>
+            </div>
+          `;
+          
+          // Agregar el proyecto al contenedor
+          container.innerHTML += proyectoHTML;
+        });
+        
+      } catch (error) {
+        console.error('Error al cargar los proyectos:', error);
+        document.getElementById('proyectos-container').innerHTML = `
+          <div class="col-12 text-center text-danger">
+            <p>Error al cargar los proyectos. Por favor recarga la página.</p>
+          </div>
+        `;
+      }
+    }
+
+    // Llamar a la función cuando el DOM esté listo
+    document.addEventListener('DOMContentLoaded', cargarProyectos);
+  </script>
 </body>
 </html>
