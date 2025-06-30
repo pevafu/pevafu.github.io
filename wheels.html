@@ -203,6 +203,34 @@
     </div>
   </div>
 
+  <!-- Modal para la galería ampliada -->
+  <div class="modal fade" id="galleryModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalTitle"></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div id="modalCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner" id="modalCarouselInner">
+              <!-- Las imágenes se insertarán aquí dinámicamente -->
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#modalCarousel" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#modalCarousel" data-bs-slide="next">
+              <span class="carousel-control-next-icon"></span>
+            </button>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <footer class="custom-footer mt-auto">
     <div class="footer-content">
       <p class="mb-0">© 2025 PV Servicios</p>
@@ -231,11 +259,10 @@
             "images/carro6.jpg",
             "images/carro7.jpg"
           ]
-        },
+        }
       ]
     };
 
-    
     // Función para mostrar los proyectos
     function cargarProyectos() {
       try {
