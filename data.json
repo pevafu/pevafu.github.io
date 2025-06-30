@@ -1,0 +1,27 @@
+{
+  "proyectos": [
+    {
+      "id": 1,
+      "titulo": "Construcción carro",
+      "descripcion": "Carro para venta de pescadería en ferias libres",
+      "imagenes": [
+        "images/carro1.jpg",
+        "images/carro2.jpg",
+        "images/carro3.jpg",
+        "images/carro4.jpg",
+        "images/carro5.jpg",
+        "images/carro6.jpg",
+        "images/carro7.jpg"
+      ]
+    },
+    {
+      "id": 2,
+      "titulo": "Carro Utilitario",
+      "descripcion": "Diseño versátil para múltiples usos en construcción",
+      "imagenes": [
+        "images/utilitario1.jpg",
+        "images/utilitario2.jpg"
+      ]
+    }
+  ]
+}
