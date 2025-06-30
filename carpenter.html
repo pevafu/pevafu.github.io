@@ -164,6 +164,14 @@
       text-decoration: underline;
       color: #0a3b70;
     }
+
+    /* Estilo para el mensaje cuando no hay proyectos */
+    .no-projects {
+      text-align: center;
+      padding: 2rem;
+      font-size: 1.2rem;
+      color: #6c757d;
+    }
   </style>
 </head>
 <body>
@@ -244,6 +252,8 @@
   <script>
     // Datos de los proyectos de carpintería en formato JSON
     const data = {
+      "proyectos": []  // Array vacío para simular que no hay proyectos
+      /*
       "proyectos": [
         {
           "id": 1,
@@ -263,45 +273,9 @@
             "images/closet1.jpg",
             "images/closet2.jpg"
           ]
-        },
-        {
-          "id": 3,
-          "titulo": "Estantería Flotante",
-          "descripcion": "Diseño moderno para sala de estar con acabado en nogal",
-          "imagenes": [
-            "images/estanteria1.jpg",
-            "images/estanteria2.jpg",
-            "images/estanteria3.jpg"
-          ]
-        },
-        {
-          "id": 4,
-          "titulo": "Mueble de TV",
-          "descripcion": "Mueble para sala de estar con espacios integrados",
-          "imagenes": [
-            "images/mueble-tv1.jpg",
-            "images/mueble-tv2.jpg"
-          ]
-        },
-        {
-          "id": 5,
-          "titulo": "Escritorio Personalizado",
-          "descripcion": "Escritorio de trabajo con cajoneras integradas",
-          "imagenes": [
-            "images/escritorio1.jpg",
-            "images/escritorio2.jpg"
-          ]
-        },
-        {
-          "id": 6,
-          "titulo": "Puertas de Madera",
-          "descripcion": "Fabricación e instalación de puertas interiores",
-          "imagenes": [
-            "images/puertas1.jpg",
-            "images/puertas2.jpg"
-          ]
         }
       ]
+      */
     };
 
     // Función para mostrar los proyectos
@@ -310,6 +284,21 @@
         const container = document.getElementById('proyectos-container');
         container.innerHTML = '';
         
+        // Verificar si hay proyectos
+        if (data.proyectos.length === 0) {
+          container.innerHTML = `
+            <div class="col-12">
+              <div class="no-projects">
+                <i class="fas fa-box-open fa-3x mb-3"></i>
+                <h3>Lo sentimos, aún no tenemos proyectos para mostrarte :(</h3>
+                <p class="mt-2">Estamos trabajando en nuevos proyectos. ¡Vuelve pronto!</p>
+              </div>
+            </div>
+          `;
+          return;
+        }
+        
+        // Si hay proyectos, mostrarlos
         data.proyectos.forEach(proyecto => {
           const carruselId = `carousel-${proyecto.id}`;
           
