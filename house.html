@@ -6,65 +6,8 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <style>
-     <style>
-    /* Estilos responsivos */
-    @media (max-width: 767px) {
-      .project-carousel {
-        height: 200px;
-      }
-      
-      .navbar-brand {
-        font-size: 1.5rem !important;
-      }
-      
-      .nav-link.btn {
-        padding: 0.5rem 1rem !important;
-        margin: 0.2rem 0;
-        width: 100%;
-      }
-      
-      h1 {
-        font-size: 1.8rem;
-        margin-top: 1rem !important;
-      }
-      
-      .card-body {
-        padding: 0.8rem;
-      }
-    }
-    .whatsapp-link {
-  padding: 8px 15px; /* Más fácil de tocar en móviles */
-  margin: 10px 0;
-}
-    .dropdown-menu {
-  width: 100%; /* Menú de ancho completo en móviles */
-}
-
-@media (min-width: 992px) {
-  .dropdown-menu {
-    width: auto;
-  }
-}
-    /* Estilo para asegurar que todas las imágenes del carrusel tengan el mismo tamaño */
-    .project-carousel {
-      height: 250px; /* Altura fija para el carrusel */
-      overflow: hidden;
-    }
-    
-    .project-carousel img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover; /* Ajusta la imagen manteniendo la relación de aspecto */
-    }
-    
-    /* Opcional: Estilo para los indicadores del carrusel */
-    .carousel-indicators button {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-    }
-  /* Añade esto en tu <head> */
+ <style>
+  /* Estilos base */
   html, body {
     height: 100%;
   }
@@ -72,69 +15,157 @@
   body {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* viewport height */
+    min-height: 100vh;
   }
   
   .container {
-    flex: 1; /* Esto hace que el contenido ocupe el espacio disponible */
+    flex: 1;
+    padding-bottom: 20px;
   }
-  <style>
-    /* Estilos para el footer */
-    html, body {
-      height: 100%;
+
+  /* Estilos para la navbar */
+  .navbar.bg-custom {
+    background-color: #0a3b70;
+  }
+  
+  .navbar.bg-custom .navbar-brand,
+  .navbar.bg-custom .nav-link,
+  .navbar.bg-custom .dropdown-toggle,
+  .navbar.bg-custom .dropdown-item {
+    color: white !important;
+  }
+  
+  .navbar.bg-custom .nav-link.btn {
+    background-color: rgba(255,255,255,0.2);
+    border: none;
+    color: white !important;
+    margin: 0 5px;
+  }
+  
+  .navbar.bg-custom .nav-link.btn:hover {
+    background-color: rgba(255,255,255,0.3);
+    color: white !important;
+  }
+  
+  .navbar.bg-custom .dropdown-menu {
+    background-color: #0a3d7a;
+    border: 1px solid rgba(255,255,255,0.2);
+    width: 100%; /* Menú de ancho completo en móviles */
+  }
+  
+  .navbar.bg-custom .dropdown-item {
+    padding: 8px 15px;
+  }
+  
+  .navbar.bg-custom .dropdown-item:hover {
+    background-color: rgba(255,255,255,0.15);
+  }
+  
+  .navbar.bg-custom .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  }
+  
+  .navbar.bg-custom .navbar-toggler {
+    border-color: rgba(255,255,255,0.5);
+  }
+
+  /* Estilos del carrusel */
+  .project-carousel {
+    height: 250px;
+    overflow: hidden;
+  }
+  
+  .project-carousel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .carousel-indicators button {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+
+  /* Estilos del footer */
+  .custom-footer, .footer {
+    background-color: #0a3b70;
+    color: white;
+    padding: 20px 0;
+    width: 100%;
+  }
+  
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 15px;
+    gap: 10px;
+  }
+  
+  .whatsapp-link {
+    color: white !important;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+    padding: 8px 16px;
+    background-color: #25D366;
+    border-radius: 5px;
+    margin: 10px 0;
+  }
+  
+  .whatsapp-link:hover {
+    background-color: #128C7E;
+    transform: scale(1.05);
+    text-decoration: none;
+  }
+  
+  .fa-whatsapp {
+    font-size: 1.2rem;
+  }
+
+  /* Estilos para tarjetas */
+  .card-body {
+    padding: 1rem;
+  }
+
+  /* Estilos responsivos */
+  @media (max-width: 767px) {
+    .project-carousel {
+      height: 200px;
     }
     
-    body {
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
+    .navbar-brand {
+      font-size: 1.5rem !important;
     }
     
-    .container {
-      flex: 1;
-      padding-bottom: 20px;
-    }
-    
-    .custom-footer {
-      background-color: #0a3b70;
-      color: white;
-      padding: 20px 0;
+    .nav-link.btn {
+      padding: 0.5rem 1rem !important;
+      margin: 0.2rem 0;
       width: 100%;
     }
     
-    .footer-content {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column; /* Cambiado a columna */
-      align-items: center; /* Centrado horizontal */
-      padding: 0 15px;
-      gap: 10px; /* Espacio entre elementos */
+    h1 {
+      font-size: 1.8rem;
+      margin-top: 1rem !important;
     }
     
-    .whatsapp-link {
-      color: white !important;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      transition: all 0.3s ease;
-      font-size: 1.1rem;
-      padding: 8px 16px;
-      background-color: #25D366; /* Fondo verde de WhatsApp */
-      border-radius: 5px;
+    .card-body {
+      padding: 0.8rem;
     }
-    
-    .whatsapp-link:hover {
-      background-color: #128C7E; /* Verde más oscuro al hover */
-      transform: scale(1.05);
-      text-decoration: none;
+  }
+
+  @media (min-width: 992px) {
+    .dropdown-menu {
+      width: auto;
     }
-    
-    .fa-whatsapp {
-      font-size: 1.2rem;
-    }
-  </style>
+  }
+</style>
 </head>
 <body>
   <nav class="navbar navbar-expand-lg" style="background-color: #0a3b70;">
