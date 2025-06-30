@@ -259,4 +259,120 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+  <script
+  // Datos de los proyectos en formato JSON
+  const data = {
+    "proyectos": [
+      {
+        "id": 1,
+        "titulo": "Construcción carro",
+        "descripcion": "Carro para venta de pescadería en ferias libres",
+        "imagenes": [
+          "images/carro1.jpg",
+          "images/carro2.jpg",
+          "images/carro3.jpg",
+          "images/carro4.jpg",
+          "images/carro5.jpg",
+          "images/carro6.jpg",
+          "images/carro7.jpg"
+        ]
+      },
+      {
+        "id": 2,
+        "titulo": "Carro Utilitario",
+        "descripcion": "Diseño versátil para múltiples usos en construcción",
+        "imagenes": [
+          "images/utilitario1.jpg",
+          "images/utilitario2.jpg"
+        ]
+      },
+      {
+        "id": 3,
+        "titulo": "Carro con Ruedas Reforzadas",
+        "descripcion": "Ideal para terrenos difíciles y cargas extremas",
+        "imagenes": [
+          "images/reforzado1.jpg",
+          "images/reforzado2.jpg",
+          "images/reforzado3.jpg"
+        ]
+      }
+    ]
+  };
+
+  // Función para mostrar los proyectos
+  function cargarProyectos() {
+    try {
+      // Obtener el contenedor de proyectos
+      const container = document.getElementById('proyectos-container');
+      
+      // Limpiar contenedor por si hay contenido previo
+      container.innerHTML = '';
+      
+      // Generar el HTML para cada proyecto
+      data.proyectos.forEach(proyecto => {
+        const carruselId = `carousel-${proyecto.id}`;
+        
+        // Crear indicadores del carrusel
+        let indicadores = '';
+        proyecto.imagenes.forEach((_, index) => {
+          indicadores += `
+            <button type="button" data-bs-target="#${carruselId}" 
+              data-bs-slide-to="${index}" ${index === 0 ? 'class="active"' : ''}>
+            </button>
+          `;
+        });
+        
+        // Crear items del carrusel
+        let items = '';
+        proyecto.imagenes.forEach((imagen, index) => {
+          items += `
+            <div class="carousel-item ${index === 0 ? 'active' : ''}">
+              <img src="${imagen}" class="d-block w-100" alt="${proyecto.titulo} - vista ${index + 1}">
+            </div>
+          `;
+        });
+        
+        // Crear el HTML completo del proyecto
+        const proyectoHTML = `
+          <div class="col-md-4 mb-4">
+            <div class="card">
+              <div id="${carruselId}" class="carousel slide project-carousel" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                  ${indicadores}
+                </div>
+                <div class="carousel-inner">
+                  ${items}
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#${carruselId}" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#${carruselId}" data-bs-slide="next">
+                  <span class="carousel-control-next-icon"></span>
+                </button>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">${proyecto.titulo}</h5>
+                <p class="card-text">${proyecto.descripcion}</p>
+              </div>
+            </div>
+          </div>
+        `;
+        
+        // Agregar el proyecto al contenedor
+        container.innerHTML += proyectoHTML;
+      });
+      
+    } catch (error) {
+      console.error('Error al cargar los proyectos:', error);
+      document.getElementById('proyectos-container').innerHTML = `
+        <div class="col-12 text-center text-danger">
+          <p>Error al cargar los proyectos. Por favor recarga la página.</p>
+        </div>
+      `;
+    }
+  }
+
+  // Llamar a la función cuando el DOM esté listo
+  document.addEventListener('DOMContentLoaded', cargarProyectos);
+</script>
 </html>
